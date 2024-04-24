@@ -33,10 +33,15 @@ class RegisterController extends Controller
             'password' => 'required|string|min:8',
             'avatar' => 'image|mimes:jpeg,png,jpg,gif|max:2048' // Kiểm tra hình ảnh
         ]);
-
+    
+        // Kiểm tra nếu tập tin không phải là hình ảnh
+        if (!in_array($request->file('avatar')->getClientOriginalExtension(), ['jpg', 'jpeg', 'png', 'gif'])) {
+            return redirect()->back()->withErrors(['avatar' => 'The avatar must be an image.'])->withInput();
+        }
+    
         // Hash password
         $password = Hash::make($request->password);
-
+    
         // Lưu dữ liệu người dùng vào cơ sở dữ liệu
         $user = new User();
         $user->name = $request->name;
@@ -50,8 +55,8 @@ class RegisterController extends Controller
             $user->avatar = $avatarName;
         }
         $user->save();
-
+    
         // Chuyển hướng người dùng sau khi đăng ký thành công
         return redirect()->route('login')->with('success', 'Đăng ký tài khoản thành công!');
-    }
+    }    
 }

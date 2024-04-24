@@ -29,41 +29,39 @@
           class="img-fluid" alt="Sample image">
       </div>
       <div class="col-md-8 col-lg-6 col-xl-4 offset-xl-1">
-        <form>
-          
-          <!-- Email input -->
-          <label class="form-label" for="form3Example3">Email address</label>
-          <div data-mdb-input-init class="form-outline mb-4">
-            <input type="email" id="form3Example3" class="form-control form-control-lg"
-              placeholder="Enter a valid email address" />
-          </div>
+      <form method="POST" action="{{ route('login') }}">
+    @csrf
+    <!-- Email input -->
+    <label class="form-label" for="form3Example3">Email address</label>
+    <div data-mdb-input-init class="form-outline mb-4">
+        <input type="email" id="form3Example3" name="email" class="form-control form-control-lg"
+            placeholder="Enter a valid email address" />
+    </div>
 
-          <!-- Password input -->
-          <label class="form-label" for="form3Example4">Password</label>
-          <div data-mdb-input-init class="form-outline mb-3">
-            <input type="password" id="form3Example4" class="form-control form-control-lg"
-              placeholder="Enter password" />   
-          </div>
+    <!-- Password input -->
+    <label class="form-label" for="form3Example4">Password</label>
+    <div data-mdb-input-init class="form-outline mb-3">
+        <input type="password" id="form3Example4" name="password" class="form-control form-control-lg"
+            placeholder="Enter password" />   
+    </div>
 
-          <div class="d-flex justify-content-between align-items-center">
-            <!-- Checkbox -->
-            <div class="form-check mb-0">
-              <input class="form-check-input me-2" type="checkbox" value="" id="form2Example3" />
-              <label class="form-check-label" for="form2Example3">
-                Remember me
-              </label>
-            </div>
-            <a href="#!" class="text-body">Forgot password?</a>
-          </div>
+    <!-- Checkbox -->
+    <div class="form-check mb-0">
+        <input class="form-check-input me-2" type="checkbox" value="" id="form2Example3" />
+        <label class="form-check-label" for="form2Example3">
+            Remember me
+        </label>
+    </div>
+    <a href="#!" class="text-body">Forgot password?</a>
 
-          <div class="text-center text-lg-start mt-4 pt-2">
-            <button type="button" data-mdb-button-init data-mdb-ripple-init class="btn btn-primary btn-lg"
-              style="padding-left: 2.5rem; padding-right: 2.5rem;">Login</button>
-            <p class="small fw-bold mt-2 pt-1 mb-0">Don't have an account? <a href= "{{route('register')}}"
-                class="link-danger">Register</a></p>
-          </div>
+    <div class="text-center text-lg-start mt-4 pt-2">
+        <!-- Sử dụng type="submit" để gửi dữ liệu khi nhấn nút -->
+        <button type="submit" class="btn btn-primary btn-lg" style="padding-left: 2.5rem; padding-right: 2.5rem;">Login</button>
+        <p class="small fw-bold mt-2 pt-1 mb-0">Don't have an account? <a href="{{ route('register') }}"
+            class="link-danger">Register</a></p>
+    </div>
+</form>
 
-        </form>
       </div>
     </div>
   </div>

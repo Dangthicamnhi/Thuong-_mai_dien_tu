@@ -3,7 +3,10 @@
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\RegisterController;
-use App\Http\Controllers\login;
+use App\Http\Controllers\LoginController;
+
+
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -14,7 +17,6 @@ use App\Http\Controllers\login;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
-
 Route::get('/', function () {
     return view('welcome');
 });
